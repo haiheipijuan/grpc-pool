@@ -144,6 +144,8 @@ func (p *Pool) Get(ctx context.Context) (*ClientConn, error) {
 
 		wrapper.ClientConn.Close()
 		wrapper.ClientConn = nil
+	} else {
+		wrapper.timeUsed = time.Now()
 	}
 
 	var err error
